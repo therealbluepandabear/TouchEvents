@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
+import com.realtomjoney.touchevents.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setBindings()
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -32,5 +35,10 @@ class MainActivity : AppCompatActivity() {
             }
             else -> super.onTouchEvent(event)
         }
+    }
+
+    private fun setBindings() {
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }
