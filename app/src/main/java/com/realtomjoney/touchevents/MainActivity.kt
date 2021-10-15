@@ -3,6 +3,7 @@ package com.realtomjoney.touchevents
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.realtomjoney.touchevents.databinding.ActivityMainBinding
@@ -14,11 +15,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setBindings()
 
-        myTouch()
+        binding.redView.setOnTouchListener(myTouchReturn())
     }
 
-    fun myTouch() {
-        binding.redView.setOnTouchListener { view, motionEvent ->
+    fun myTouchReturn(): View.OnTouchListener {
+        return View.OnTouchListener { view, motionEvent ->
             view.performClick()
             when (motionEvent.actionMasked) {
                 MotionEvent.ACTION_DOWN -> {
