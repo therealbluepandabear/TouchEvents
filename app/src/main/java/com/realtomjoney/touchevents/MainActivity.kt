@@ -13,6 +13,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindings()
+
+        binding.redView.setOnTouchListener { view, motionEvent ->
+            view.performClick()
+            when (motionEvent.actionMasked) {
+                MotionEvent.ACTION_DOWN -> {
+                    true
+                }
+                MotionEvent.ACTION_UP -> {
+                    true
+                }
+                else -> true
+            }
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
