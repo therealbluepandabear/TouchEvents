@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setBindings()
 
+        myTouch()
+    }
+
+    fun myTouch() {
         binding.redView.setOnTouchListener { view, motionEvent ->
             view.performClick()
             when (motionEvent.actionMasked) {
