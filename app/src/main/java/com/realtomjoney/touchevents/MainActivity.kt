@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
             view.performClick()
             when (motionEvent.actionMasked) {
                 MotionEvent.ACTION_DOWN -> {
+                    Toast.makeText(this, "Red View was touched", Toast.LENGTH_SHORT).show()
                     true
                 }
                 MotionEvent.ACTION_UP -> {
